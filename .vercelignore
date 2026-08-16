@@ -1,0 +1,14 @@
+# Nothing listed here is ever published to the public site.
+# NOTE: patterns must be on their own line — a trailing comment breaks the pattern.
+
+# Client's original camera files (full-res family photos, incl. minors)
+source-photos
+
+# Internal pitch notes — not for the client or the public
+CALL-BRIEF.md
+
+# Tooling / docs
+verify-affiliate-links.py
+README.md
+.DS_Store
+.git
