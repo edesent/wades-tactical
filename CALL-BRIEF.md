@@ -1,11 +1,26 @@
 # Wade's Tactical — Del Rio, TX — demo call brief
 
-**Live demo:** https://wades-tactical.vercel.app
+**Live demo:** https://wades-tactical.vercel.app (Wes's Vercel team)
+**Second copy:** https://wades-tactical-phi.vercel.app (Eli's Vercel team — `elijah-desents-projects`)
+**Source:** https://github.com/wfwayfresh/wades-tactical (**private** repo)
 **Prospect:** Wade's Tactical — Texas License to Carry instructor, Del Rio, TX
 **Only web presence:** https://www.facebook.com/WadesTactical (4,270 likes) — **no website at all**
 **Second account found:** Instagram [@wadestactical](https://www.instagram.com/wadestactical/) — 215 followers, 8 posts, last active ~Feb 2020, all Cerakote work. Display name is "thomas."
 
 ---
+
+## Hosting & handoff (2026-08-16)
+
+- **GitHub:** `wfwayfresh/wades-tactical`, **private**. It has to stay private — it carries the client's
+  full-resolution family photos (four minors) and this brief.
+- Deployed to **both** Vercel teams from the same repo, so the demo isn't tied to one account.
+  Eli's copy was built from a clean `git clone` to prove the repo is account-agnostic — `.vercel/`
+  is gitignored, so a fresh clone deploys anywhere. Instructions are in `README.md`.
+- **Fixed a leak:** the production URL was serving `/CALL-BRIEF.md` and the 9.9 MB original family
+  photo at `/source-photos/IMG_6090.JPG`. A `.vercelignore` now excludes those, plus `README.md` and
+  the verify script; all four return 404 on both deployments. The older per-deployment URLs were
+  always behind Vercel SSO, so the public window was the production alias only, and it's closed.
+  Gotcha for next time: a trailing `# comment` on a `.vercelignore` line silently breaks the pattern.
 
 ## The pitch in one line
 
