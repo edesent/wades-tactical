@@ -166,6 +166,7 @@ nav.main a.on{color:#fff;background:var(--navy)}
   align-items:center;position:relative;
 }
 .hero-split h1{color:#fff;max-width:14ch;text-shadow:none}
+.hero-split h1 em{color:var(--red)}
 .hero-split .lede{color:#c3c3dc;max-width:48ch}
 .hero-portrait{position:relative}
 .hero-frame{position:relative}
