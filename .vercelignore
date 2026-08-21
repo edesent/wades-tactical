@@ -6,6 +6,7 @@ source-photos
 
 # Internal pitch notes — not for the client or the public
 CALL-BRIEF.md
+GBP-SETUP.md
 
 # Tooling / docs
 verify-affiliate-links.py
