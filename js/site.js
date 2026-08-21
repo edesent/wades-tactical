@@ -29,12 +29,34 @@
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
   rv.forEach(function (el) { io.observe(el); });
 
-  var form = document.querySelector('form[data-demo]');
+  var form = document.querySelector('form[data-seat-form]');
   if (form) {
+    var successMsg = form.querySelector('.form-success');
+    var errorMsg = form.querySelector('.form-error');
+    var submitBtn = form.querySelector('button[type="submit"]');
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      var n = form.querySelector('.demo-msg');
-      if (n) { n.hidden = false; n.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      if (errorMsg) errorMsg.hidden = true;
+      if (successMsg) successMsg.hidden = true;
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          form.reset();
+          if (successMsg) { successMsg.hidden = false; successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        } else {
+          if (errorMsg) { errorMsg.hidden = false; errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        }
+      }).catch(function () {
+        if (errorMsg) { errorMsg.hidden = false; errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      }).finally(function () {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send it over'; }
+      });
     });
   }
 })();
