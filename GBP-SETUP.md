@@ -42,8 +42,8 @@ mornings at 9am; set those if Google requires specific hours.
 ## BUSINESS DESCRIPTION (750 char limit)
 
 Wade's Tactical teaches the Texas License to Carry course in Del Rio, Texas, taught by a
-Texas DPS-certified firearms instructor with 12 years of firearms instruction and over 8
-years certified to teach the LTC. Thousands of Texans qualified.
+DPS-certified firearms instructor with 12 years of firearms instruction and over 8 years
+certified to teach the LTC. Thousands of Texans qualified.
 
 Classes cover Texas weapons law, use of force, safe handling and storage, plus the state
 range qualification. First-time shooters are welcome — basic handgun instruction is
