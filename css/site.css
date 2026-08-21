@@ -385,3 +385,6 @@ footer.site a:hover{color:#fff}
 .table th{font-family:var(--ff-d);font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);font-size:.86rem}
 .table-scroll{overflow-x:auto}
 .aff-note{font-size:.83rem;color:var(--mute);margin-top:10px}
+
+/* honeypot — invisible to humans, reachable to bots */
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0;pointer-events:none}

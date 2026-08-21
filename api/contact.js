@@ -4,7 +4,17 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { fn, ln, ph, em, want, exp, rental, msg } = req.body || {};
+  // Accepts both the original short names and the human-readable names the
+  // live FormSubmit form uses, so this stays a drop-in replacement.
+  const b = req.body || {};
+  const fn     = b.fn     ?? b['First Name'];
+  const ln     = b.ln     ?? b['Last Name'];
+  const ph     = b.ph     ?? b['Phone'];
+  const em     = b.em     ?? b.email;
+  const want   = b.want   ?? b['Interested In'];
+  const exp    = b.exp    ?? b['Shooting Experience'];
+  const rental = b.rental ?? b['Needs Rental'];
+  const msg    = b.msg    ?? b['Message'];
 
   if (!fn || !em) {
     return res.status(400).json({ error: 'Missing required fields' });

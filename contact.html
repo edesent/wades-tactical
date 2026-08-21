@@ -5,8 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Reserve a Seat | Wade's Tactical — Del Rio, TX</title>
 <meta name="description" content="Reserve your seat in the next Texas License to Carry class in Del Rio, Texas. Message Wade's Tactical with your questions — first-time shooters welcome, rentals with ammunition available.">
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="geo.region" content="US-TX">
+<meta name="geo.placename" content="Del Rio, Texas">
+<link rel="canonical" href="https://www.wadestactical.com/contact">
 <link rel="icon" href="images/mark.png">
+<meta property="og:url" content="https://www.wadestactical.com/contact">
+<meta property="og:site_name" content="Wade&#39;s Tactical">
+<meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Reserve a Seat — Wade's Tactical, Del Rio TX">
 <meta property="og:description" content="Get into the next Texas License to Carry class in Del Rio. First-time shooters welcome, rentals with ammunition available.">
@@ -19,6 +25,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://www.wadestactical.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Reserve a Seat",
+   "item": "https://www.wadestactical.com/contact"
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -68,18 +94,28 @@
       <h2>Get in the next class</h2>
       <p class="lede">Seats are limited and they fill fast &mdash; most classes are 50 to 75% reserved before they're even announced. Send this over and I'll confirm your spot and the details.</p>
 
-      <form class="form" data-seat-form action="/api/contact" method="POST" novalidate style="margin-top:26px">
+      <form class="form" data-seat-form
+            action="https://formsubmit.co/ajax/WadesTactical@gmail.com"
+            method="POST" style="margin-top:26px">
+
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="New seat request from wadestactical.com">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- honeypot: humans never fill this in, bots do -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+
         <div class="row2">
-          <div><label for="fn">First name</label><input id="fn" name="fn" type="text" autocomplete="given-name"></div>
-          <div><label for="ln">Last name</label><input id="ln" name="ln" type="text" autocomplete="family-name"></div>
+          <div><label for="fn">First name</label><input id="fn" name="First Name" type="text" autocomplete="given-name" required></div>
+          <div><label for="ln">Last name</label><input id="ln" name="Last Name" type="text" autocomplete="family-name"></div>
         </div>
         <div class="row2">
-          <div><label for="ph">Phone</label><input id="ph" name="ph" type="tel" autocomplete="tel"></div>
-          <div><label for="em">Email</label><input id="em" name="em" type="email" autocomplete="email"></div>
+          <div><label for="ph">Phone</label><input id="ph" name="Phone" type="tel" autocomplete="tel"></div>
+          <div><label for="em">Email</label><input id="em" name="email" type="email" autocomplete="email" required></div>
         </div>
         <div>
           <label for="want">What are you after?</label>
-          <select id="want" name="want">
+          <select id="want" name="Interested In">
             <option>Texas License to Carry class (in person, Del Rio)</option>
             <option>Online course + range day to qualify</option>
             <option>First-time shooter, start at the beginning</option>
@@ -94,7 +130,7 @@
         <div class="row2">
           <div>
             <label for="exp">Shooting experience</label>
-            <select id="exp" name="exp">
+            <select id="exp" name="Shooting Experience">
               <option>Never fired a handgun</option>
               <option>A little, it's been a while</option>
               <option>Comfortable, shoot regularly</option>
@@ -102,14 +138,14 @@
           </div>
           <div>
             <label for="rental">Do you need a rental?</label>
-            <select id="rental" name="rental">
+            <select id="rental" name="Needs Rental">
               <option>Yes, I need a rental</option>
               <option>No, I'll bring my own</option>
               <option>Not sure yet</option>
             </select>
           </div>
         </div>
-        <div><label for="msg">Anything else I should know?</label><textarea id="msg" name="msg" placeholder="Questions about the law, what to bring, booking a group, whatever's on your mind."></textarea></div>
+        <div><label for="msg">Anything else I should know?</label><textarea id="msg" name="Message" placeholder="Questions about the law, what to bring, booking a group, whatever's on your mind."></textarea></div>
         <div>
           <button class="btn btn-primary btn-lg" type="submit">Send it over</button>
           <p class="form-note" style="margin-top:12px">Nothing here is shared with anyone. I'll get back to you personally.</p>
