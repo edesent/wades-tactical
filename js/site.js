@@ -63,6 +63,29 @@
         }
       }).catch(function () {
         if (errorMsg) { errorMsg.hidden = false; errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+        // Never strand a lead: if the relay refuses, hand them a prefilled
+        // email with everything they already typed. Address is assembled here
+        // rather than sitting in the HTML so scrapers don't harvest it.
+        if (!delivered) {
+          var link = form.querySelector('[data-mail-fallback]');
+          if (link) {
+            var d = Object.fromEntries(new FormData(form));
+            var to = ['WadesTactical', 'gmail.com'].join('@');
+            var body = [
+              'Name: ' + (d['First Name'] || '') + ' ' + (d['Last Name'] || ''),
+              'Phone: ' + (d['Phone'] || ''),
+              'Email: ' + (d['email'] || ''),
+              'Interested in: ' + (d['Interested In'] || ''),
+              'Shooting experience: ' + (d['Shooting Experience'] || ''),
+              'Needs a rental: ' + (d['Needs Rental'] || ''),
+              '',
+              (d['Message'] || '')
+            ].join('\n');
+            link.href = 'mailto:' + to
+              + '?subject=' + encodeURIComponent('Seat request from wadestactical.com')
+              + '&body=' + encodeURIComponent(body);
+          }
+        }
       }).finally(function () {
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send it over'; }
       });
