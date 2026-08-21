@@ -46,7 +46,16 @@
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
       }).then(function (response) {
-        if (response.ok) {
+        // FormSubmit answers 200 even when it refuses the submission (e.g. the
+        // form is not activated yet), so trust the payload, not the status code.
+        return response.json().then(function (data) {
+          return { ok: response.ok, data: data };
+        }).catch(function () {
+          return { ok: response.ok, data: null };
+        });
+      }).then(function (result) {
+        var delivered = result.ok && (!result.data || String(result.data.success) === 'true');
+        if (delivered) {
           form.reset();
           if (successMsg) { successMsg.hidden = false; successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
         } else {
